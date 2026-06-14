@@ -1,8 +1,18 @@
-import os 
+import os
+import gdown
 from tensorflow.keras.models import Sequential 
 from tensorflow.keras.layers import Conv3D, LSTM, Dense, Dropout, Bidirectional, MaxPool3D, Activation, TimeDistributed, Flatten
 
+WEIGHTS_PATH = os.path.join('..', 'models', 'checkpoint.weights.h5')
+WEIGHTS_URL = 'https://drive.google.com/uc?id=1kHs4JdQWWL3iSmm-CFwMERycRwDB_vap'
+
 def load_model() -> Sequential: 
+    # Auto-download weights if not present
+    if not os.path.exists(WEIGHTS_PATH):
+        os.makedirs('../models', exist_ok=True)
+        print("Downloading model weights...")
+        gdown.download(WEIGHTS_URL, WEIGHTS_PATH, quiet=False)
+
     model = Sequential()
 
     model.add(Conv3D(128, 3, input_shape=(75,46,140,1), padding='same'))
@@ -27,6 +37,6 @@ def load_model() -> Sequential:
 
     model.add(Dense(41, kernel_initializer='he_normal', activation='softmax'))
 
-    model.load_weights(os.path.join('..', 'models', 'checkpoint.weights.h5'))
+    model.load_weights(WEIGHTS_PATH)
 
     return model
