@@ -1,11 +1,3 @@
----
-title: LipReading AI
-emoji: 👄
-colorFrom: blue
-colorTo: indigo
-sdk: streamlit
-app_file: streamlitapp.py
----
 # LipNet – 3D CNN-LSTM Lip Reading Model 👄
 ### Silent Video to Text using Deep Learning
 
