@@ -110,12 +110,9 @@ model.load_weights('models/checkpoint.weights.h5')
 
 ```
 LipReading_AI/
-├── app/
-│   ├── streamlitapp.py      # Streamlit web interface
-│   ├── modelutil.py         # Model architecture + weight loading
-│   └── utils.py             # Video preprocessing + alignment loading
-├── models/
-│   └── checkpoint.weights.h5
+├── streamlitapp.py      # Streamlit web interface
+├── modelutil.py         # Model architecture + weight loading
+├── utils.py             # Video preprocessing + alignment loading
 ├── LipNet.ipynb             # Training notebook
 ├── README.md
 └── .gitignore
